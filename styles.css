@@ -50,3 +50,10 @@ header {
 	padding-bottom: 100%;
 	display: block;
 }
+
+.message {
+	text-align: center;
+	margin: 20px 0;
+	color: var(--font-color);
+	font-size: 20px;
+}
