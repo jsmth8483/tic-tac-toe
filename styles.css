@@ -57,3 +57,13 @@ header {
 	color: var(--font-color);
 	font-size: 20px;
 }
+
+.controls {
+	text-align: center;
+}
+.controls button {
+	border: 1px solid var(--other-color-2);
+	background-color: transparent;
+	color: var(--other-color-2);
+	font-size: 24px;
+}

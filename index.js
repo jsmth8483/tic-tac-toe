@@ -185,6 +185,7 @@ const game = (function (board, messageBoard) {
 		currentPlayer = player1;
 		board.resetBoard();
 		messageBoard.setMessage(`${currentPlayer.name}'s turn`);
+		bindEvents();
 	}
 
 	function bindEvents() {
@@ -192,6 +193,9 @@ const game = (function (board, messageBoard) {
 		gameBoxes.forEach((box) => {
 			box.addEventListener('click', boxClickHandler);
 		});
+
+		const restartButton = document.querySelector('.controls button');
+		restartButton.addEventListener('click', restartButtonHandler);
 	}
 
 	function unbindEvents() {
@@ -217,6 +221,15 @@ const game = (function (board, messageBoard) {
 		return board.isCatsGame();
 	}
 
+	function changePlayers() {
+		currentPlayer = currentPlayer == player1 ? player2 : player1;
+		messageBoard.setMessage(`${currentPlayer.name}'s turn`);
+	}
+
+	function displayBoxFilledError() {
+		messageBoard.setMessage('Box has already been filled');
+	}
+
 	function boxClickHandler(box) {
 		const boxFilled = board.fillBox(
 			box.target.getAttribute('data-id'),
@@ -238,13 +251,8 @@ const game = (function (board, messageBoard) {
 		}
 	}
 
-	function changePlayers() {
-		currentPlayer = currentPlayer == player1 ? player2 : player1;
-		messageBoard.setMessage(`${currentPlayer.name}'s turn`);
-	}
-
-	function displayBoxFilledError() {
-		messageBoard.setMessage('Box has already been filled');
+	function restartButtonHandler() {
+		startGame();
 	}
 
 	return { startGame };
