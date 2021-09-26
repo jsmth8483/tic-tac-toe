@@ -147,6 +147,7 @@ const gameBoard = (function (display) {
 		board = ['', '', '', '', '', '', '', '', ''];
 		playerWon = false;
 		catsGame = false;
+		
 		render();
 	}
 
